@@ -59,7 +59,7 @@ https://docs.python.org/ja/3/tutorial/venv.html
 ```sh
 % npm run dump st_demo_ai_comp -- -r requirements.txt
 % npm run serve
-% dist -wl deb
+% npm run dist -- -win
 ```
 
 # LICENCE

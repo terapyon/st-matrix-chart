@@ -15,6 +15,7 @@ def get_data(file) -> pd.DataFrame:
 
 st.title("Excelから2次元マトリックスを表示")
 
+# ファイルの読み込み
 if st.session_state.uploaded_file is None:
     st.subheader("Excelファイルをアップロードします。")
 
@@ -27,6 +28,8 @@ else:
     if st.button("ファイルを削除"):
         st.session_state.uploaded_file = None
         st.rerun()
+
+    # 不要な行や列を無効化
     temp_df = get_data(st.session_state.uploaded_file)
     ignored_columns = st.multiselect("無視する列", temp_df.columns.to_list())
     ignored_rows = st.multiselect("無視する行", temp_df.index.to_list())
@@ -49,12 +52,15 @@ else:
 
     st.dataframe(df)
 
+    #  可視化に使うカラムを選択
     columns = df.columns.to_list()
     name = st.selectbox("表示名", columns)
     size = st.selectbox("円の大きさ", columns)
     color = st.selectbox("色", columns)
     x_columns = st.selectbox("横軸", columns)
     y_columns = st.selectbox("縦軸", columns)
+
+    # 可視化
     if x_columns and y_columns:
         if x_columns == y_columns:
             st.error("横軸と縦軸が同じです。")
