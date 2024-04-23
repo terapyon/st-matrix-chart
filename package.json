@@ -1,0 +1,33 @@
+{
+    "name": "st-matrix-chart",
+    "version": "0.1.0",
+    "homepage": "https://github.com/terapyon/st-matrix-chart",
+    "author": {
+        "name": "Manabu TERADA",
+        "email": "terapyon@gmail.com"
+    },
+    "main": "./build/electron/main.js",
+    "scripts": {
+      "dump": "dump-stlite-desktop-artifacts",
+      "serve": "cross-env NODE_ENV=production electron .",
+      "pack": "electron-builder --dir",
+      "dist": "electron-builder",
+      "postinstall": "electron-builder install-app-deps"
+    },
+    "build": {
+      "files": ["build/**/*"],
+      "directories": {
+        "buildResources": "assets"
+      },
+      "appId": "jp.terapyon.matrixchart.app",
+      "mac": {
+          "category": "public.app-category.developer-tools"
+      }
+    },
+    "devDependencies": {
+      "@stlite/desktop": "^0.52.0",
+      "cross-env": "^7.0.3",
+      "electron": "^28.2.1",
+      "electron-builder": "^24.9.1"
+    }
+  }
