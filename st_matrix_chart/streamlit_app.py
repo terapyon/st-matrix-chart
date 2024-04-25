@@ -3,10 +3,6 @@ import pandas as pd
 import plotly.express as px
 
 
-if "uploaded_file" not in st.session_state:
-    st.session_state.uploaded_file = None
-
-
 @st.cache_data
 def get_data(file) -> pd.DataFrame:
     df = pd.read_excel(file)
@@ -16,22 +12,13 @@ def get_data(file) -> pd.DataFrame:
 st.title("Excelから2次元マトリックスを表示")
 
 # ファイルの読み込み
-if st.session_state.uploaded_file is None:
-    st.subheader("Excelファイルをアップロードします。")
+st.subheader("Excelファイルをアップロードします。")
+uploaded_file = st.file_uploader("Excelファイル", type="xlsx")
 
-    uploaded_file = st.file_uploader("Excelファイル", type="xlsx")
-    if uploaded_file and st.button("アップロード"):
-        st.session_state.uploaded_file = uploaded_file
-        st.rerun()
-else:
-    st.subheader("アップロード済みのファイル")
-    if st.button("ファイルを削除"):
-        st.session_state.uploaded_file = None
-        st.rerun()
-
-    # DataFrame化
-    df = get_data(st.session_state.uploaded_file)
-    st.write(st.session_state.uploaded_file.name)
+# DataFrame化
+if uploaded_file:
+    df = get_data(uploaded_file)
+    st.write(uploaded_file.name)
     st.dataframe(df)
 
     #  可視化に使うカラムを選択
