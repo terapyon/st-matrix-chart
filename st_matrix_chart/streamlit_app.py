@@ -29,34 +29,16 @@ else:
         st.session_state.uploaded_file = None
         st.rerun()
 
-    # 不要な行や列を無効化
-    temp_df = get_data(st.session_state.uploaded_file)
-    ignored_columns = st.multiselect("無視する列", temp_df.columns.to_list())
-    ignored_rows = st.multiselect("無視する行", temp_df.index.to_list())
-    if ignored_rows:
-        replace_columns = st.toggle("列名を置換する")
-    else:
-        replace_columns = False
-    selected_df = temp_df.drop(ignored_rows, axis=0).drop(ignored_columns, axis=1)
+    # DataFrame化
+    df = get_data(st.session_state.uploaded_file)
     st.write(st.session_state.uploaded_file.name)
-
-    if replace_columns:
-        df = selected_df.iloc[1:, :]
-        columns_name = selected_df.iloc[0, :]
-        if columns_name.notna().all() and all(
-            isinstance(name, str) for name in columns_name
-        ):
-            df.columns = columns_name
-    else:
-        df = selected_df
-
     st.dataframe(df)
 
     #  可視化に使うカラムを選択
     columns = df.columns.to_list()
     name = st.selectbox("表示名", columns)
-    size = st.selectbox("円の大きさ", columns)
     color = st.selectbox("色", columns)
+    size = st.selectbox("円の大きさ", columns)
     x_columns = st.selectbox("横軸", columns)
     y_columns = st.selectbox("縦軸", columns)
 
