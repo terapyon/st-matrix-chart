@@ -62,6 +62,12 @@ https://docs.python.org/ja/3/tutorial/venv.html
 % npm run dist -- -win
 ```
 
+## リリース
+
+- tagを作る `git tag v1.0.0`
+- tagをPush `git push origin v1.0.0`
+- リリースを作る。Web UIでリリースを v1.0.0 を作る
+
 # LICENCE
 
 This package is under MIT License.
