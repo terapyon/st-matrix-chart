@@ -38,8 +38,8 @@ jobs:
         with:
           name: linux
           path: |
-            dist/st_matrix_chart*.deb
-            dist/st_matrix_chart*.rpm
+            dist/st-matrix-chart*.deb
+            dist/st-matrix-chart*.rpm
 
       - name: Run dist on Windows
         if: startsWith(matrix.os,'windows')
@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: dist/st_matrix_chart*.exe
+          path: dist/st-matrix-chart*.exe
 
       - name: Run dist on macOS
         if: startsWith(matrix.os,'macos')
@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macos
-          path: dist/st_matrix_chart*.dmg
+          path: dist/st-matrix-chart*.dmg
 
   upload-release:
     name: 'Upload Release'
