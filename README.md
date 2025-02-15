@@ -57,7 +57,7 @@ https://docs.python.org/ja/3/tutorial/venv.html
 ```
 
 ```sh
-% npm run dump st_demo_ai_comp -- -r requirements.txt
+% npm run dump st_matrix_chart -- -r requirements.txt
 % npm run serve
 % npm run dist -- -win
 ```
