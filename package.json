@@ -33,7 +33,8 @@
     "stlite": {
       "desktop": {
         "files": ["st_matrix_chart/streamlit_app.py"],
-        "entrypoint": "st_matrix_chart/streamlit_app.py"
+        "entrypoint": "st_matrix_chart/streamlit_app.py",
+        "requirementsTxtFiles": ["requirements.txt"]
       }
     }
   }

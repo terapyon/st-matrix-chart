@@ -55,7 +55,7 @@ If the browser does not open automatically, copy the URL with the port number di
 ```
 
 ```sh
-% npm run dump st_matrix_chart -- -r requirements.txt
+% npm run dump
 % npm run serve
 % npm run dist -- -win
 ```
@@ -131,7 +131,7 @@ https://docs.python.org/ja/3/tutorial/venv.html
 ```
 
 ```sh
-% npm run dump st_matrix_chart -- -r requirements.txt
+% npm run
 % npm run serve
 % npm run dist -- -win
 ```
