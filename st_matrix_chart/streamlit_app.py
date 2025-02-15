@@ -9,30 +9,30 @@ def get_data(file) -> pd.DataFrame:
     return df
 
 
-st.title("Excelから2次元マトリックスを表示")
+st.title("Display 2D Matrix from Excel")
 
-# ファイルの読み込み
-st.subheader("Excelファイルをアップロードします。")
-uploaded_file = st.file_uploader("Excelファイル", type="xlsx")
+# File upload
+st.subheader("Upload an Excel file.")
+uploaded_file = st.file_uploader("Excel File", type="xlsx")
 
-# DataFrame化
+# Convert to DataFrame
 if uploaded_file:
     df = get_data(uploaded_file)
     st.write(uploaded_file.name)
     st.dataframe(df)
 
-    #  可視化に使うカラムを選択
+    # Select columns for visualization
     columns = df.columns.to_list()
-    name = st.selectbox("表示名", columns)
-    color = st.selectbox("色", columns)
-    size = st.selectbox("円の大きさ", columns)
-    x_columns = st.selectbox("横軸", columns)
-    y_columns = st.selectbox("縦軸", columns)
+    name = st.selectbox("Display Name", columns)
+    color = st.selectbox("Color", columns)
+    size = st.selectbox("Size", columns)
+    x_columns = st.selectbox("X-Axis", columns)
+    y_columns = st.selectbox("Y-Axis", columns)
 
-    # 可視化
+    # Visualization
     if x_columns and y_columns:
         if x_columns == y_columns:
-            st.error("横軸と縦軸が同じです。")
+            st.error("X-Axis and Y-Axis cannot be the same.")
         else:
             fig = px.scatter(
                 df,
