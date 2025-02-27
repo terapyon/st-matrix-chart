@@ -131,7 +131,7 @@ https://docs.python.org/ja/3/tutorial/venv.html
 ```
 
 ```sh
-% npm run
+% npm run dump st_matrix_chart -- -r requirements.txt
 % npm run serve
 % npm run dist -- -win
 ```
