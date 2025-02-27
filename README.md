@@ -55,7 +55,7 @@ If the browser does not open automatically, copy the URL with the port number di
 ```
 
 ```sh
-% npm run dump
+% npm run dump st_matrix_chart -- -r requirements.txt
 % npm run serve
 % npm run dist -- -win
 ```
